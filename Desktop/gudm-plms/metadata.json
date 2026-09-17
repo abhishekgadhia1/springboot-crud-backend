@@ -1,0 +1,6 @@
+{
+  "name": "Gujarat Urban Development Mission - PLMS",
+  "description": "Internal department-facing Project Lifecycle Management System (PLMS) for Gujarat Urban Development Mission (GUDM), Government of Gujarat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

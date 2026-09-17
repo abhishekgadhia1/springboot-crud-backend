@@ -1,0 +1,1160 @@
+/**
+ * GUDM PLMS Realistic Mock Data
+ * Gujarat Urban Development Mission, Government of Gujarat
+ */
+
+import {
+  ProjectMaster,
+  RFPRecord,
+  ContractRecord,
+  SiteInspection,
+  IssueRisk,
+  DocumentRecord,
+  ApprovalItem,
+  NotificationItem,
+} from '../types';
+
+export const INITIAL_PROJECTS: ProjectMaster[] = [
+  {
+    id: 'GUDM-PRJ-2024-001',
+    name: 'Ahmedabad Eastern Corridor Stormwater Drainage & Pumping Augmentation Phase-II',
+    category: 'Stormwater Drainage',
+    type: 'Capacity Expansion',
+    description:
+      'Construction of 24.5 km RCC box-culvert stormwater conduits, micro-tunnelling under railway tracks, and augmentation of Nikol & Odhav pumping stations (180 MLD capacity).',
+    district: 'Ahmedabad',
+    ulb: 'Ahmedabad Municipal Corporation (AMC)',
+    location: 'Odhav, Nikol & Viratnagar Industrial Belt',
+    coordinates: { lat: 23.0338, lng: 72.6578 },
+    implementingAgency: 'Ahmedabad Municipal Corporation',
+    department: 'Urban Drainage & Flood Mitigation Wing',
+    projectManager: 'Er. Rajesh K. Patel (SE, AMC)',
+    estimatedCost: 148.5,
+    approvedCost: 142.2,
+    expenditure: 88.4,
+    committedCost: 139.8,
+    fundingSource: 'Swarnim Jayanti Mukhya Mantri Shehri Vikas Yojana (SJMMSVY)',
+    plannedStartDate: '2024-01-15',
+    plannedCompletionDate: '2025-06-30',
+    actualStartDate: '2024-02-01',
+    expectedCompletionDate: '2025-08-15',
+    currentStage: 'Project execution',
+    currentStatus: 'Delayed',
+    physicalProgress: 64,
+    financialProgress: 62,
+    riskLevel: 'Medium',
+    priority: 'Chief Minister Mission',
+    contractor: 'L&T Infrastructure Engineering Ltd. JV',
+    rfpId: 'GUDM/RFP/2023/102',
+    contractId: 'GUDM/CTR/2023/048',
+    delayDays: 45,
+    delayReason: 'Pending utility shifting NOC for gas pipeline & monsoonal water table rise.',
+    lastUpdated: '2025-03-10',
+    milestones: [
+      { id: 'M1', name: 'Site clearance and geo-technical validation', weightage: 15, plannedDate: '2024-03-31', actualDate: '2024-04-10', status: 'Achieved', deliverable: 'Sub-soil survey & clearance cert' },
+      { id: 'M2', name: 'RCC Trunk line casting & excavation (14 km)', weightage: 35, plannedDate: '2024-09-30', actualDate: '2024-10-25', status: 'Achieved', deliverable: '14km culvert structural audit' },
+      { id: 'M3', name: 'Pumping Station civil works & electro-mechanical', weightage: 30, plannedDate: '2025-03-31', status: 'In Progress', deliverable: 'Pump sump test and motor install' },
+      { id: 'M4', name: 'Testing, commissioning and scada integration', weightage: 20, plannedDate: '2025-06-30', status: 'Pending', deliverable: 'Trial run completion certificate' },
+    ],
+    auditTrail: [
+      { id: 'AUD-001', timestamp: '2024-01-10 11:30', performedBy: 'S. K. Joshi (Chief Engineer)', role: 'Engineering Officer', action: 'Technical Sanction Granted', previousStatus: 'Planning', newStatus: 'Approved', remarks: 'TS approved with revised pipe grading specifications.' },
+      { id: 'AUD-002', timestamp: '2024-01-28 16:45', performedBy: 'M. V. Shah (Procurement)', role: 'Procurement Officer', action: 'Work Order Dispatched', previousStatus: 'Under RFP', newStatus: 'Awarded', remarks: 'Lowest responsive tender (L1) awarded to L&T JV.' },
+      { id: 'AUD-003', timestamp: '2025-02-18 10:15', performedBy: 'Er. Rajesh K. Patel', role: 'Project Manager', action: 'Extension of Time Recommended', previousStatus: 'In Execution', newStatus: 'Delayed', remarks: 'Utility line shifting clearance delayed by 45 days.' }
+    ]
+  },
+  {
+    id: 'GUDM-PRJ-2024-002',
+    name: 'Surat Coastal Belt 24x7 Surface Water Supply Grid & Smart Metering',
+    category: 'Water Supply & Sewerage',
+    type: 'Greenfield Infrastructure',
+    description:
+      'Laying 42 km ductile iron feeder pipeline from Tapi river intake, construction of 120 MLD Water Treatment Plant at Pal, and deployment of 65,000 LoRaWAN AMR smart water meters.',
+    district: 'Surat',
+    ulb: 'Surat Municipal Corporation (SMC)',
+    location: 'Pal-Hazira Urban Expansion Zone',
+    coordinates: { lat: 21.1702, lng: 72.8311 },
+    implementingAgency: 'Surat Municipal Corporation',
+    department: 'Urban Water Supply Directorate',
+    projectManager: 'Er. Snehal Desai (EE, SMC)',
+    estimatedCost: 210.0,
+    approvedCost: 204.5,
+    expenditure: 168.2,
+    committedCost: 202.0,
+    fundingSource: 'AMRUT 2.0',
+    plannedStartDate: '2023-08-01',
+    plannedCompletionDate: '2025-04-30',
+    actualStartDate: '2023-08-15',
+    expectedCompletionDate: '2025-04-30',
+    currentStage: 'Progress monitoring',
+    currentStatus: 'In Execution',
+    physicalProgress: 88,
+    financialProgress: 82,
+    riskLevel: 'Low',
+    priority: 'Priority',
+    contractor: 'NCC Limited - Megha Engineering JV',
+    rfpId: 'GUDM/RFP/2023/074',
+    contractId: 'GUDM/CTR/2023/031',
+    delayDays: 0,
+    lastUpdated: '2025-03-12',
+    milestones: [
+      { id: 'M1', name: 'Intake well & raw water pumping mains', weightage: 25, plannedDate: '2024-02-28', actualDate: '2024-02-20', status: 'Achieved', deliverable: 'Hydrostatic pressure test' },
+      { id: 'M2', name: '120 MLD WTP Clariflocculator and Filtration', weightage: 35, plannedDate: '2024-10-31', actualDate: '2024-10-15', status: 'Achieved', deliverable: 'Civil structure completion' },
+      { id: 'M3', name: 'Distribution network and ESRs (6 Nos)', weightage: 25, plannedDate: '2025-02-28', actualDate: '2025-02-25', status: 'Achieved', deliverable: 'Reservoirs commissioned' },
+      { id: 'M4', name: 'AMR Smart meters & SCADA integration', weightage: 15, plannedDate: '2025-04-30', status: 'In Progress', deliverable: 'Consumer billing sync' },
+    ],
+    auditTrail: [
+      { id: 'AUD-004', timestamp: '2023-07-20 14:00', performedBy: 'S. N. Mehta (Finance Officer)', role: 'Finance Officer', action: 'Financial Concurrence Passed', previousStatus: 'Planning', newStatus: 'Approved', remarks: 'Budget verified under AMRUT 2.0 state matching fund.' },
+      { id: 'AUD-005', timestamp: '2025-03-01 09:30', performedBy: 'Er. Snehal Desai', role: 'Project Manager', action: 'Milestone 3 Approved', previousStatus: 'In Execution', newStatus: 'In Execution', remarks: 'All 6 ESRs successfully hydro-tested.' }
+    ]
+  },
+  {
+    id: 'GUDM-PRJ-2024-003',
+    name: 'Vadodara Vishwamitri Riverfront Ecological Restoration & Bio-Swale System',
+    category: 'Lake Rejuvenation & Green Space',
+    type: 'Greenfield Infrastructure',
+    description:
+      'Ecological riparian buffer revival along 8.2 km river stretch, wetland terracing, interceptor sewage diversions to prevent blackwater discharge, and urban mangrove pathways.',
+    district: 'Vadodara',
+    ulb: 'Vadodara Municipal Corporation (VMC)',
+    location: 'Fatehgunj to Sama Harni Stretch',
+    coordinates: { lat: 22.3072, lng: 73.1812 },
+    implementingAgency: 'Vadodara Municipal Corporation',
+    department: 'Urban Environment & Riverfront Mission',
+    projectManager: 'Er. Dharmesh Pandya (SE, VMC)',
+    estimatedCost: 95.0,
+    approvedCost: 91.8,
+    expenditure: 32.1,
+    committedCost: 89.0,
+    fundingSource: 'World Bank / GUDM Urban Resilient Fund',
+    plannedStartDate: '2024-03-01',
+    plannedCompletionDate: '2026-02-28',
+    actualStartDate: '2024-04-10',
+    expectedCompletionDate: '2026-06-30',
+    currentStage: 'Site inspection',
+    currentStatus: 'Delayed',
+    physicalProgress: 38,
+    financialProgress: 35,
+    riskLevel: 'High',
+    priority: 'Chief Minister Mission',
+    contractor: 'Shapoorji Pallonji Environmental Division',
+    rfpId: 'GUDM/RFP/2023/118',
+    contractId: 'GUDM/CTR/2024/012',
+    delayDays: 60,
+    delayReason: 'NGT and State Environmental Impact clearance review regarding crocodile habitat protection.',
+    lastUpdated: '2025-03-08',
+    milestones: [
+      { id: 'M1', name: 'Interceptor sewer line laying (Phase 1)', weightage: 30, plannedDate: '2024-09-30', actualDate: '2024-11-20', status: 'Achieved', deliverable: 'Sewer diverter commission' },
+      { id: 'M2', name: 'Terraced bio-retention swales & gabion walls', weightage: 30, plannedDate: '2025-03-31', status: 'In Progress', deliverable: 'Riparian embankment stabilization' },
+      { id: 'M3', name: 'Ecological wetlands & biodiversity parks', weightage: 25, plannedDate: '2025-10-31', status: 'Pending', deliverable: 'Botanical and fauna sanctuary' },
+      { id: 'M4', name: 'Public walkways, lighting and solar monitoring', weightage: 15, plannedDate: '2026-02-28', status: 'Pending', deliverable: 'Citizen access sign-off' },
+    ],
+    auditTrail: [
+      { id: 'AUD-006', timestamp: '2024-04-05 16:20', performedBy: 'Mission Director GUDM', role: 'Senior Management', action: 'Administrative Approval Endorsed', previousStatus: 'Preliminary proposal', newStatus: 'Administrative approval', remarks: 'Sanctioned with mandatory NGT mitigation committee.' }
+    ]
+  },
+  {
+    id: 'GUDM-PRJ-2024-004',
+    name: 'Rajkot Smart Ring Road Multimodal Flyover & Grade Separator at KKV Chowk',
+    category: 'Urban Roads & Bridges',
+    type: 'Capacity Expansion',
+    description:
+      'Construction of 2.1 km 6-lane elevated flyover with dedicated BRTS priority lanes, noise barriers, LED smart street lighting, and junction pedestrian underpass.',
+    district: 'Rajkot',
+    ulb: 'Rajkot Municipal Corporation (RMC)',
+    location: '150 Feet Ring Road Junction',
+    coordinates: { lat: 22.3039, lng: 70.8022 },
+    implementingAgency: 'Rajkot Municipal Corporation',
+    department: 'Urban Transport & Bridge Cell',
+    projectManager: 'Er. Hitesh Trivedi (EE, RMC)',
+    estimatedCost: 112.0,
+    approvedCost: 108.4,
+    expenditure: 74.6,
+    committedCost: 106.0,
+    fundingSource: 'Swarnim Jayanti Mukhya Mantri Shehri Vikas Yojana (SJMMSVY)',
+    plannedStartDate: '2023-11-01',
+    plannedCompletionDate: '2025-05-31',
+    actualStartDate: '2023-11-15',
+    expectedCompletionDate: '2025-05-31',
+    currentStage: 'Progress monitoring',
+    currentStatus: 'In Execution',
+    physicalProgress: 76,
+    financialProgress: 69,
+    riskLevel: 'Low',
+    priority: 'High',
+    contractor: 'Montecarlo Construction Ltd.',
+    rfpId: 'GUDM/RFP/2023/092',
+    contractId: 'GUDM/CTR/2023/044',
+    delayDays: 0,
+    lastUpdated: '2025-03-14',
+    milestones: [
+      { id: 'M1', name: 'Pile foundation & substructure (54 piers)', weightage: 30, plannedDate: '2024-04-30', actualDate: '2024-04-20', status: 'Achieved', deliverable: 'Pile integrity load test certificates' },
+      { id: 'M2', name: 'Pre-stressed girder erection & pier caps', weightage: 40, plannedDate: '2024-12-15', actualDate: '2024-12-05', status: 'Achieved', deliverable: 'Girder structural safety sign-off' },
+      { id: 'M3', name: 'Deck slab casting and asphalt wearing coat', weightage: 20, plannedDate: '2025-03-31', status: 'In Progress', deliverable: 'Deck slab core strength analysis' },
+      { id: 'M4', name: 'Crash barriers, signage, streetlights & trial', weightage: 10, plannedDate: '2025-05-31', status: 'Pending', deliverable: 'Safety audit certification' },
+    ],
+    auditTrail: [
+      { id: 'AUD-007', timestamp: '2024-12-10 11:00', performedBy: 'Er. Hitesh Trivedi', role: 'Project Manager', action: 'Girder Load Inspection Approved', previousStatus: 'In Execution', newStatus: 'In Execution', remarks: 'Load deflection tests well within codal limits.' }
+    ]
+  },
+  {
+    id: 'GUDM-PRJ-2024-005',
+    name: 'Gandhinagar Capital Smart Solar Rooftop & 24x7 Pressurized Water SCADA',
+    category: 'Smart City & Digital Infra',
+    type: 'Modernization',
+    description:
+      'Deployment of IoT pressure transmitters, flow sensors across 30 sectors, cloud-based SCADA leak detection, and 3.5 MW grid-tied rooftop solar panels at water pumping stations.',
+    district: 'Gandhinagar',
+    ulb: 'Gandhinagar Municipal Corporation (GMC)',
+    location: 'Sector 1 to 30 Grid',
+    coordinates: { lat: 23.2156, lng: 72.6369 },
+    implementingAgency: 'Gandhinagar Smart City Development Ltd.',
+    department: 'Smart Infrastructure Wing',
+    projectManager: 'Er. Paresh Bhatt (General Manager, GMC)',
+    estimatedCost: 68.0,
+    approvedCost: 65.5,
+    expenditure: 63.8,
+    committedCost: 65.2,
+    fundingSource: 'Smart Cities Mission',
+    plannedStartDate: '2023-04-01',
+    plannedCompletionDate: '2024-11-30',
+    actualStartDate: '2023-04-15',
+    expectedCompletionDate: '2024-11-20',
+    currentStage: 'Handover',
+    currentStatus: 'Completed',
+    physicalProgress: 100,
+    financialProgress: 98,
+    riskLevel: 'Low',
+    priority: 'Standard',
+    contractor: 'Schneider Electric - Tata Power Solar Consortium',
+    rfpId: 'GUDM/RFP/2023/021',
+    contractId: 'GUDM/CTR/2023/011',
+    delayDays: 0,
+    lastUpdated: '2025-02-28',
+    milestones: [
+      { id: 'M1', name: 'Telemetry hardware installation at 30 pumping units', weightage: 30, plannedDate: '2023-10-31', actualDate: '2023-10-25', status: 'Achieved', deliverable: 'Field telemetry installation report' },
+      { id: 'M2', name: '3.5 MW Solar panel grid synchronization', weightage: 35, plannedDate: '2024-04-30', actualDate: '2024-04-15', status: 'Achieved', deliverable: 'GETCO net-metering approval' },
+      { id: 'M3', name: 'Central Command & Control Center (ICCC) link', weightage: 25, plannedDate: '2024-09-30', actualDate: '2024-09-20', status: 'Achieved', deliverable: 'Dashboard operational readiness' },
+      { id: 'M4', name: 'Final Handover and 5-Year O&M Transition', weightage: 10, plannedDate: '2024-11-30', actualDate: '2024-11-20', status: 'Achieved', deliverable: 'Handover protocol signed' },
+    ],
+    auditTrail: [
+      { id: 'AUD-008', timestamp: '2024-11-20 17:00', performedBy: 'Super Administrator', role: 'Super Administrator', action: 'Project Handover Form Approved', previousStatus: 'Completion', newStatus: 'Handover', remarks: 'Handover to GMC Operations cell completed without pending punch list items.' }
+    ]
+  },
+  {
+    id: 'GUDM-PRJ-2024-006',
+    name: 'Bhavnagar Urban Lake Rejuvenation & Stormwater Retention Basin',
+    category: 'Lake Rejuvenation & Green Space',
+    type: 'Greenfield Infrastructure',
+    description:
+      'Desilting, bund stabilization, construction of bio-filter inlets, perimeter promenade with open gymnasium, and rainwater harvesting retention system at Bor Talav lake.',
+    district: 'Bhavnagar',
+    ulb: 'Bhavnagar Municipal Corporation (BMC)',
+    location: 'Bor Talav Catchment Area',
+    coordinates: { lat: 21.7645, lng: 72.1519 },
+    implementingAgency: 'Bhavnagar Municipal Corporation',
+    department: 'Urban Lake Development Cell',
+    projectManager: 'Er. Chetan Rathod (EE, BMC)',
+    estimatedCost: 44.0,
+    approvedCost: 42.5,
+    expenditure: 11.2,
+    committedCost: 41.0,
+    fundingSource: 'Swarnim Jayanti Mukhya Mantri Shehri Vikas Yojana (SJMMSVY)',
+    plannedStartDate: '2024-06-01',
+    plannedCompletionDate: '2025-10-31',
+    actualStartDate: '2024-07-01',
+    expectedCompletionDate: '2025-12-15',
+    currentStage: 'Site inspection',
+    currentStatus: 'In Execution',
+    physicalProgress: 32,
+    financialProgress: 26,
+    riskLevel: 'Medium',
+    priority: 'Standard',
+    contractor: 'Cube Construction Engineering Ltd.',
+    rfpId: 'GUDM/RFP/2024/035',
+    contractId: 'GUDM/CTR/2024/019',
+    delayDays: 20,
+    delayReason: 'Excess heavy rainfall during monsoon slowed dewatering operations.',
+    lastUpdated: '2025-03-11',
+    milestones: [
+      { id: 'M1', name: 'Desilting and sediment extraction (4.5 lakh cu.m)', weightage: 35, plannedDate: '2024-11-30', actualDate: '2024-12-20', status: 'Achieved', deliverable: 'Bathymetric survey verification' },
+      { id: 'M2', name: 'Perimeter diaphragm wall and stone pitching', weightage: 30, plannedDate: '2025-04-30', status: 'In Progress', deliverable: 'Rip-rap slope stability test' },
+      { id: 'M3', name: 'Bio-filters, wetlands and floating aerators', weightage: 20, plannedDate: '2025-08-31', status: 'Pending', deliverable: 'Water quality BOD/COD index report' },
+      { id: 'M4', name: 'Promenade, tree planting and community pavilion', weightage: 15, plannedDate: '2025-10-31', status: 'Pending', deliverable: 'Final site inspection clearance' },
+    ],
+    auditTrail: [
+      { id: 'AUD-009', timestamp: '2024-06-15 15:30', performedBy: 'Er. Chetan Rathod', role: 'Project Manager', action: 'Contract Agreement Registered', previousStatus: 'Contract award', newStatus: 'Work order', remarks: 'PBG verified with Bank of Baroda.' }
+    ]
+  },
+  {
+    id: 'GUDM-PRJ-2024-007',
+    name: 'Jamnagar Waste-to-Energy (WTE) Processing Plant 400 TPD Facility',
+    category: 'Solid Waste Management',
+    type: 'Greenfield Infrastructure',
+    description:
+      'Design, build, finance, operate and transfer (DBFOT) 400 Metric Tonnes per day municipal solid waste incineration and 6.5 MW power generation facility with automated flue gas cleaning.',
+    district: 'Jamnagar',
+    ulb: 'Jamnagar Municipal Corporation (JMC)',
+    location: 'Gulabnagar Solid Waste Complex',
+    coordinates: { lat: 22.4707, lng: 70.0577 },
+    implementingAgency: 'Gujarat Urban Development Mission (Direct)',
+    department: 'Swachh Bharat & Solid Waste Management Mission',
+    projectManager: 'Er. Ketan Solanki (SE, GUDM)',
+    estimatedCost: 165.0,
+    approvedCost: 158.0,
+    expenditure: 8.5,
+    committedCost: 154.0,
+    fundingSource: 'State Budget Grant',
+    plannedStartDate: '2024-10-01',
+    plannedCompletionDate: '2026-09-30',
+    actualStartDate: '2024-12-01',
+    expectedCompletionDate: '2027-03-31',
+    currentStage: 'Technical assessment',
+    currentStatus: 'Delayed',
+    physicalProgress: 12,
+    financialProgress: 5,
+    riskLevel: 'Critical',
+    priority: 'High',
+    contractor: 'Enviro Clean Technologies & BHEL Consortium',
+    rfpId: 'GUDM/RFP/2024/052',
+    contractId: 'GUDM/CTR/2024/033',
+    delayDays: 75,
+    delayReason: 'Public interest litigation and dispute on environmental buffer zone boundaries.',
+    lastUpdated: '2025-03-05',
+    milestones: [
+      { id: 'M1', name: 'Environmental Clearances & Civil Foundation', weightage: 25, plannedDate: '2025-03-31', status: 'In Progress', deliverable: 'Pollution Control Board CTE clearance' },
+      { id: 'M2', name: 'Boiler structure & turbine building erection', weightage: 35, plannedDate: '2025-11-30', status: 'Pending', deliverable: 'Boiler pressure vessel safety test' },
+      { id: 'M3', name: 'Refuse feeding line and automated flue gas scrubber', weightage: 25, plannedDate: '2026-05-31', status: 'Pending', deliverable: 'Emission compliance certificate' },
+      { id: 'M4', name: 'Grid evacuation link & 72-hour trial run', weightage: 15, plannedDate: '2026-09-30', status: 'Pending', deliverable: 'Commercial operation date (COD)' },
+    ],
+    auditTrail: [
+      { id: 'AUD-010', timestamp: '2025-02-12 11:20', performedBy: 'Mission Director GUDM', role: 'Senior Management', action: 'High-Level Review Initiated', previousStatus: 'In Execution', newStatus: 'Delayed', remarks: 'District collector requested to finalize alternative buffer acquisition.' }
+    ]
+  },
+  {
+    id: 'GUDM-PRJ-2024-008',
+    name: 'Junagadh Heritage City Upgradation & Uparkot Fort Tourist Corridor',
+    category: 'Urban Roads & Bridges',
+    type: 'Modernization',
+    description:
+      'Conservation-sensitive pedestrian cobblestone walkways, heritage facade illumination, undergrounding of overhead power cables, and multi-level electric vehicle parking.',
+    district: 'Junagadh',
+    ulb: 'Junagadh Municipal Corporation (JMC)',
+    location: 'Uparkot Fort & Diwan Chowk Axis',
+    coordinates: { lat: 21.5222, lng: 70.4579 },
+    implementingAgency: 'Junagadh Municipal Corporation',
+    department: 'Urban Heritage & Tourism Cell',
+    projectManager: 'Er. Bhavin Vala (EE, JMC)',
+    estimatedCost: 52.0,
+    approvedCost: 49.5,
+    expenditure: 38.2,
+    committedCost: 48.0,
+    fundingSource: 'State Budget Grant',
+    plannedStartDate: '2023-09-15',
+    plannedCompletionDate: '2025-03-31',
+    actualStartDate: '2023-10-01',
+    expectedCompletionDate: '2025-04-15',
+    currentStage: 'Bill and payment processing',
+    currentStatus: 'In Execution',
+    physicalProgress: 92,
+    financialProgress: 77,
+    riskLevel: 'Low',
+    priority: 'Standard',
+    contractor: 'Savani Heritage Conservation JV',
+    rfpId: 'GUDM/RFP/2023/088',
+    contractId: 'GUDM/CTR/2023/039',
+    delayDays: 15,
+    lastUpdated: '2025-03-15',
+    milestones: [
+      { id: 'M1', name: 'Underground cable ducting and utility relocation', weightage: 30, plannedDate: '2024-03-31', actualDate: '2024-03-25', status: 'Achieved', deliverable: 'Discom overhead wire removal cert' },
+      { id: 'M2', name: 'Cobblestone pedestrian pathways & storm drains', weightage: 35, plannedDate: '2024-09-30', actualDate: '2024-10-10', status: 'Achieved', deliverable: 'Structural pavement quality test' },
+      { id: 'M3', name: 'Smart architectural facade illumination', weightage: 20, plannedDate: '2024-12-31', actualDate: '2024-12-28', status: 'Achieved', deliverable: 'Archeological Dept NOC' },
+      { id: 'M4', name: 'EV Shuttle terminal & tourist info kiosk', weightage: 15, plannedDate: '2025-03-31', status: 'In Progress', deliverable: 'Final operational certification' },
+    ],
+    auditTrail: [
+      { id: 'AUD-011', timestamp: '2025-03-12 16:10', performedBy: 'S. N. Mehta (Finance Officer)', role: 'Finance Officer', action: 'RA Bill #06 Scrutiny', previousStatus: 'Bill and payment processing', newStatus: 'Bill and payment processing', remarks: 'Bill for Rs. 4.8 Cr forwarded with 5% statutory retention.' }
+    ]
+  },
+  {
+    id: 'GUDM-PRJ-2024-009',
+    name: 'Anand-Nadiad Twin Urban Corridor Bus Rapid Transit & EV Depot',
+    category: 'Urban Transport & EV',
+    type: 'Greenfield Infrastructure',
+    description:
+      'Construction of dedicated 18 km electric bus priority corridor connecting Anand and Nadiad, 40 fast-charging bays, solar carports, and integrated automated fare collection.',
+    district: 'Anand',
+    ulb: 'Anand Municipality',
+    location: 'Anand - Nadiad Highway (NH-48 Old Stretch)',
+    coordinates: { lat: 22.5645, lng: 72.9289 },
+    implementingAgency: 'Gujarat Urban Development Mission (Direct)',
+    department: 'Urban Transport & EV Division',
+    projectManager: 'Er. Alok Sharma (Director Transport, GUDM)',
+    estimatedCost: 135.0,
+    approvedCost: 129.0,
+    expenditure: 14.5,
+    committedCost: 125.0,
+    fundingSource: 'World Bank / GUDM Urban Resilient Fund',
+    plannedStartDate: '2024-08-01',
+    plannedCompletionDate: '2026-03-31',
+    actualStartDate: '2024-09-15',
+    expectedCompletionDate: '2026-03-31',
+    currentStage: 'Work order',
+    currentStatus: 'Awarded',
+    physicalProgress: 18,
+    financialProgress: 11,
+    riskLevel: 'Medium',
+    priority: 'Priority',
+    contractor: 'Tata Motors - JMC Projects Joint Venture',
+    rfpId: 'GUDM/RFP/2024/014',
+    contractId: 'GUDM/CTR/2024/008',
+    delayDays: 0,
+    lastUpdated: '2025-03-09',
+    milestones: [
+      { id: 'M1', name: 'Land possession and depot boundary wall', weightage: 20, plannedDate: '2024-12-31', actualDate: '2024-12-15', status: 'Achieved', deliverable: 'Demarcation and revenue record entry' },
+      { id: 'M2', name: 'Depot workshop civil works and high-voltage grid sub-station', weightage: 30, plannedDate: '2025-06-30', status: 'In Progress', deliverable: 'MGVCL 66kV substation sync' },
+      { id: 'M3', name: 'Corridor bus shelter stations (22 units)', weightage: 30, plannedDate: '2025-12-31', status: 'Pending', deliverable: 'Shelter structural signoff' },
+      { id: 'M4', name: 'Fleet commissioning and ITS software integration', weightage: 20, plannedDate: '2026-03-31', status: 'Pending', deliverable: 'Commercial trial runs' },
+    ],
+    auditTrail: [
+      { id: 'AUD-012', timestamp: '2024-09-10 14:30', performedBy: 'Procurement Officer', role: 'Procurement Officer', action: 'Work Order Issued', previousStatus: 'Contract award', newStatus: 'Work order', remarks: 'Work order dispatched following cabinet sanction.' }
+    ]
+  },
+  {
+    id: 'GUDM-PRJ-2024-010',
+    name: 'Bhuj & Kutch Urban Desalination Water Supply Pipeline Network',
+    category: 'Water Supply & Sewerage',
+    type: 'Capacity Expansion',
+    description:
+      'Bulk potable water distribution network connecting Mandvi desalination plant to Bhuj urban master balancing reservoir, featuring surge suppression systems.',
+    district: 'Kutch',
+    ulb: 'Bhuj Area Development Authority (BHUDA)',
+    location: 'Mandvi to Bhuj Water Corridor',
+    coordinates: { lat: 23.242, lng: 69.6669 },
+    implementingAgency: 'Gujarat Water Infrastructure Ltd. (GWIL) / GUDM',
+    department: 'Urban Water Supply Directorate',
+    projectManager: 'Er. Bharat Chhasatia (SE, GWIL)',
+    estimatedCost: 185.0,
+    approvedCost: 180.0,
+    expenditure: 175.4,
+    committedCost: 179.5,
+    fundingSource: 'State Budget Grant',
+    plannedStartDate: '2022-10-01',
+    plannedCompletionDate: '2024-10-31',
+    actualStartDate: '2022-10-15',
+    expectedCompletionDate: '2024-10-28',
+    currentStage: 'Closure',
+    currentStatus: 'Completed',
+    physicalProgress: 100,
+    financialProgress: 100,
+    riskLevel: 'Low',
+    priority: 'High',
+    contractor: 'Welspun Enterprises Ltd.',
+    rfpId: 'GUDM/RFP/2022/045',
+    contractId: 'GUDM/CTR/2022/019',
+    delayDays: 0,
+    lastUpdated: '2025-01-20',
+    milestones: [
+      { id: 'M1', name: 'MS pipeline fabrication & hydro-testing', weightage: 40, plannedDate: '2023-06-30', actualDate: '2023-06-15', status: 'Achieved', deliverable: 'Coating and ultrasonic testing report' },
+      { id: 'M2', name: 'Booster pumping station at Rayan', weightage: 30, plannedDate: '2023-12-31', actualDate: '2023-12-20', status: 'Achieved', deliverable: 'Pumping motor run test' },
+      { id: 'M3', name: 'Terminal balancing reservoir (25 ML)', weightage: 20, plannedDate: '2024-06-30', actualDate: '2024-06-25', status: 'Achieved', deliverable: 'Leakage tightness certificate' },
+      { id: 'M4', name: 'Final Handover, Defect Liability Period audit', weightage: 10, plannedDate: '2024-10-31', actualDate: '2024-10-28', status: 'Achieved', deliverable: 'Final completion certificate' },
+    ],
+    auditTrail: [
+      { id: 'AUD-013', timestamp: '2025-01-15 10:00', performedBy: 'Super Administrator', role: 'Super Administrator', action: 'Project Closed', previousStatus: 'Handover', newStatus: 'Closure', remarks: 'All accounts finalized. Performance bank guarantee released.' }
+    ]
+  },
+  {
+    id: 'GUDM-PRJ-2024-011',
+    name: 'Mehsana Modern Integrated Solid Waste & Bio-Methanation Facility',
+    category: 'Solid Waste Management',
+    type: 'Greenfield Infrastructure',
+    description:
+      'Construction of 150 TPD wet waste anaerobic digestion bio-methanation facility producing CBG for city bus transport, with material recovery facility (MRF) for dry recyclable fractions.',
+    district: 'Mehsana',
+    ulb: 'Mehsana Municipality',
+    location: 'Naglapur Processing Zone',
+    coordinates: { lat: 23.588, lng: 72.3693 },
+    implementingAgency: 'Mehsana Municipality / GUDM Support',
+    department: 'Swachh Bharat & Solid Waste Management Mission',
+    projectManager: 'Er. Nimesh Barot (Executive Officer)',
+    estimatedCost: 38.0,
+    approvedCost: 36.5,
+    expenditure: 0.0,
+    committedCost: 0.0,
+    fundingSource: 'Swarnim Jayanti Mukhya Mantri Shehri Vikas Yojana (SJMMSVY)',
+    plannedStartDate: '2025-05-01',
+    plannedCompletionDate: '2026-08-31',
+    expectedCompletionDate: '2026-08-31',
+    currentStage: 'Bid evaluation',
+    currentStatus: 'Under RFP',
+    physicalProgress: 0,
+    financialProgress: 0,
+    riskLevel: 'Medium',
+    priority: 'Standard',
+    rfpId: 'GUDM/RFP/2025/007',
+    delayDays: 0,
+    lastUpdated: '2025-03-14',
+    milestones: [
+      { id: 'M1', name: 'Tender award and site mobilization', weightage: 15, plannedDate: '2025-05-31', status: 'Pending', deliverable: 'Signing of agreement' },
+      { id: 'M2', name: 'Digester civil structures & gas holders', weightage: 40, plannedDate: '2025-12-31', status: 'Pending', deliverable: 'Pressure tightness audit' },
+      { id: 'M3', name: 'CBG purification and bottling unit', weightage: 30, plannedDate: '2026-05-31', status: 'Pending', deliverable: 'PESO explosive license' },
+      { id: 'M4', name: 'Full operational run & certification', weightage: 15, plannedDate: '2026-08-31', status: 'Pending', deliverable: 'Plant commission memo' },
+    ],
+    auditTrail: [
+      { id: 'AUD-014', timestamp: '2025-03-02 15:00', performedBy: 'M. V. Shah (Procurement)', role: 'Procurement Officer', action: 'Technical Bids Opened', previousStatus: 'Bid submission', newStatus: 'Bid evaluation', remarks: 'Three responsive consortium tenders received.' }
+    ]
+  },
+  {
+    id: 'GUDM-PRJ-2024-012',
+    name: 'Bharuch-Ankleshwar Urban Ring Road Bridge Over Narmada River Approach',
+    category: 'Urban Roads & Bridges',
+    type: 'Greenfield Infrastructure',
+    description:
+      '4-lane cable-stayed bridge approach road (3.4 km) connecting Bharuch urban expansion with Ankleshwar GIDC to alleviate severe congestion on the Golden Bridge corridor.',
+    district: 'Bharuch',
+    ulb: 'Bharuch Municipality',
+    location: 'Zadeshwar - Ankleshwar Connector',
+    coordinates: { lat: 21.7051, lng: 72.9959 },
+    implementingAgency: 'GUDM Roads & Bridges Cell',
+    department: 'Urban Transport & Bridge Cell',
+    projectManager: 'Er. Pradeep Chaudhary (SE, GUDM)',
+    estimatedCost: 175.0,
+    approvedCost: 168.0,
+    expenditure: 0.0,
+    committedCost: 0.0,
+    fundingSource: 'State Budget Grant',
+    plannedStartDate: '2025-07-01',
+    plannedCompletionDate: '2027-06-30',
+    expectedCompletionDate: '2027-06-30',
+    currentStage: 'RFP publication',
+    currentStatus: 'Under RFP',
+    physicalProgress: 0,
+    financialProgress: 0,
+    riskLevel: 'High',
+    priority: 'Chief Minister Mission',
+    rfpId: 'GUDM/RFP/2025/012',
+    delayDays: 0,
+    lastUpdated: '2025-03-12',
+    milestones: [
+      { id: 'M1', name: 'RFP award & contractor mobilization', weightage: 10, plannedDate: '2025-07-31', status: 'Pending', deliverable: 'Mobilization advance verification' },
+      { id: 'M2', name: 'Substructure & deep well foundations in riverbed', weightage: 40, plannedDate: '2026-04-30', status: 'Pending', deliverable: 'Well sinking load test' },
+      { id: 'M3', name: 'Pylon construction & cable-stay installation', weightage: 35, plannedDate: '2027-01-31', status: 'Pending', deliverable: 'Cable tension stress audit' },
+      { id: 'M4', name: 'Approach viaducts and final load testing', weightage: 15, plannedDate: '2027-06-30', status: 'Pending', deliverable: 'Bridge safety certification' },
+    ],
+    auditTrail: [
+      { id: 'AUD-015', timestamp: '2025-03-01 10:30', performedBy: 'Procurement Officer', role: 'Procurement Officer', action: 'RFP Published on nProcure', previousStatus: 'RFP preparation', newStatus: 'RFP publication', remarks: 'Notice inviting tender published in leading dailies.' }
+    ]
+  },
+  {
+    id: 'GUDM-PRJ-2024-013',
+    name: 'Porbandar Coastal Sea-Wall Armor & Promenade Flood Defense',
+    category: 'Stormwater Drainage',
+    type: 'Greenfield Infrastructure',
+    description:
+      'Construction of 3.8 km tetrapod armored sea wall, submerged geotextile reef, storm tidal surge gates, and integrated public promenade along the Arabian Sea coastline.',
+    district: 'Porbandar',
+    ulb: 'Porbandar Municipality',
+    location: 'Chowpati Beach to Subhashnagar Coast',
+    coordinates: { lat: 21.6417, lng: 69.6293 },
+    implementingAgency: 'Gujarat Maritime Board / GUDM',
+    department: 'Urban Drainage & Flood Mitigation Wing',
+    projectManager: 'Er. Girish Gohil (EE, Coastal Division)',
+    estimatedCost: 82.0,
+    approvedCost: 78.5,
+    expenditure: 24.0,
+    committedCost: 76.0,
+    fundingSource: 'World Bank / GUDM Urban Resilient Fund',
+    plannedStartDate: '2024-04-01',
+    plannedCompletionDate: '2025-11-30',
+    actualStartDate: '2024-04-20',
+    expectedCompletionDate: '2025-11-30',
+    currentStage: 'Project execution',
+    currentStatus: 'In Execution',
+    physicalProgress: 48,
+    financialProgress: 31,
+    riskLevel: 'Medium',
+    priority: 'High',
+    contractor: 'ITD Cementation India Ltd.',
+    rfpId: 'GUDM/RFP/2023/129',
+    contractId: 'GUDM/CTR/2024/005',
+    delayDays: 0,
+    lastUpdated: '2025-03-10',
+    milestones: [
+      { id: 'M1', name: 'Quarry stone core and geotextile filter laying', weightage: 30, plannedDate: '2024-09-30', actualDate: '2024-09-22', status: 'Achieved', deliverable: 'Geotechnical core inspection' },
+      { id: 'M2', name: 'Casting & placement of 8,500 RCC tetrapods', weightage: 40, plannedDate: '2025-04-30', status: 'In Progress', deliverable: 'Tetrapod interlocking audit' },
+      { id: 'M3', name: 'Flap-gate tidal culverts & crest wall', weightage: 20, plannedDate: '2025-08-31', status: 'Pending', deliverable: 'Tidal surge gate test' },
+      { id: 'M4', name: 'Promenade illumination and coastal safety railings', weightage: 10, plannedDate: '2025-11-30', status: 'Pending', deliverable: 'Handover report' },
+    ],
+    auditTrail: [
+      { id: 'AUD-016', timestamp: '2024-04-18 12:00', performedBy: 'Er. Girish Gohil', role: 'Project Manager', action: 'Work Commenced', previousStatus: 'Work order', newStatus: 'Project execution', remarks: 'First batch of 12T tetrapod concrete casting commenced.' }
+    ]
+  },
+  {
+    id: 'GUDM-PRJ-2024-014',
+    name: 'Navsari Green Affordable Housing & Smart Slum In-situ Redevelopment',
+    category: 'Affordable Housing & Slum Upgradation',
+    type: 'Greenfield Infrastructure',
+    description:
+      'Construction of 1,840 G+12 dwelling units for economically weaker sections (EWS) with solar hot water, community health clinic, piped gas network, and preschool center.',
+    district: 'Navsari',
+    ulb: 'Navsari Municipality',
+    location: 'Jalalpore Urban Development Area',
+    coordinates: { lat: 20.95, lng: 72.93 },
+    implementingAgency: 'Gujarat Urban Development Mission',
+    department: 'Affordable Housing Cell',
+    projectManager: 'Er. Meera Trivedi (Joint Director, Housing)',
+    estimatedCost: 118.0,
+    approvedCost: 114.0,
+    expenditure: 0.0,
+    committedCost: 0.0,
+    fundingSource: 'Swarnim Jayanti Mukhya Mantri Shehri Vikas Yojana (SJMMSVY)',
+    plannedStartDate: '2025-06-01',
+    plannedCompletionDate: '2027-05-31',
+    expectedCompletionDate: '2027-05-31',
+    currentStage: 'Administrative approval',
+    currentStatus: 'Planning',
+    physicalProgress: 0,
+    financialProgress: 0,
+    riskLevel: 'Low',
+    priority: 'Standard',
+    delayDays: 0,
+    lastUpdated: '2025-03-15',
+    milestones: [
+      { id: 'M1', name: 'Beneficiary biometric survey & AS/TS sanction', weightage: 15, plannedDate: '2025-05-31', status: 'In Progress', deliverable: 'Verified beneficiary roll' },
+      { id: 'M2', name: 'Foundation and RCC structural frame to 12th floor', weightage: 45, plannedDate: '2026-06-30', status: 'Pending', deliverable: 'Structural stability certificate' },
+      { id: 'M3', name: 'Internal MEP, solar rooftop, and road infrastructure', weightage: 30, plannedDate: '2027-02-28', status: 'Pending', deliverable: 'Discom and gas grid clearance' },
+      { id: 'M4', name: 'Draw of lots and computerized allotment', weightage: 10, plannedDate: '2027-05-31', status: 'Pending', deliverable: 'Beneficiary possession keys' },
+    ],
+    auditTrail: [
+      { id: 'AUD-017', timestamp: '2025-03-14 11:30', performedBy: 'Super Administrator', role: 'Super Administrator', action: 'Administrative Approval In-Principle', previousStatus: 'Preliminary proposal', newStatus: 'Administrative approval', remarks: 'State level steering committee approved proposal.' }
+    ]
+  }
+];
+
+export const INITIAL_RFPS: RFPRecord[] = [
+  {
+    id: 'GUDM/RFP/2025/007',
+    projectId: 'GUDM-PRJ-2024-011',
+    projectName: 'Mehsana Modern Integrated Solid Waste & Bio-Methanation Facility',
+    title: 'RFP for Design, Build, Operate & Maintain 150 TPD Bio-Methanation Plant at Mehsana',
+    category: 'Solid Waste Management',
+    estimatedCost: 36.5,
+    tenderFee: 25000,
+    emdAmount: 3650000,
+    status: 'Evaluation',
+    publishDate: '2025-01-10',
+    preBidMeetingDate: '2025-01-25',
+    submissionDeadline: '2025-02-20',
+    openingDate: '2025-02-22',
+    bidsCount: 3,
+    eligibilityCriteria: [
+      'Minimum average annual financial turnover of Rs. 40 Cr in preceding 3 financial years',
+      'Successful commissioning of at least one 100 TPD bio-gas/CBG project under Govt/ULB in India',
+      'Valid ISO 9001 and ISO 14001 certification',
+      'Solvency certificate of minimum Rs. 15 Cr from a scheduled commercial bank'
+    ],
+    evaluationCommittee: [
+      'Er. Ketan Solanki (Superintending Engineer, GUDM) - Chairman',
+      'Er. Nimesh Barot (Executive Officer, Mehsana) - Member Secretary',
+      'S. N. Mehta (Chief Accounts Officer, GUDM) - Financial Member',
+      'Prof. D. K. Raval (Environmental Engineering Expert, LDCE) - External Expert'
+    ],
+    bids: [
+      {
+        id: 'BID-001',
+        bidderName: 'EverEnviro Resource Management Pvt. Ltd.',
+        bidderRegistrationNo: 'GJ-GUDM-CL1-2022-89',
+        technicalScore: 92.5,
+        financialBidAmount: 34.8,
+        bidSubmissionDate: '2025-02-18',
+        eligibilityPassed: true,
+        status: 'L1 (Preferred)',
+        evaluatorRemarks: 'Exceptional process technology, highest bio-methane recovery rating, and lowest commercial quote.'
+      },
+      {
+        id: 'BID-002',
+        bidderName: 'Ramky Enviro Engineers Ltd.',
+        bidderRegistrationNo: 'GJ-GUDM-CL1-2021-45',
+        technicalScore: 88.0,
+        financialBidAmount: 36.2,
+        bidSubmissionDate: '2025-02-19',
+        eligibilityPassed: true,
+        status: 'L2',
+        evaluatorRemarks: 'Technically compliant, quote is Rs. 1.4 Cr higher than L1.'
+      },
+      {
+        id: 'BID-003',
+        bidderName: 'Bio-Clean Waste Ventures LLP',
+        bidderRegistrationNo: 'GJ-GUDM-CL2-2023-11',
+        technicalScore: 68.0,
+        financialBidAmount: 33.9,
+        bidSubmissionDate: '2025-02-20',
+        eligibilityPassed: false,
+        status: 'Disqualified',
+        evaluatorRemarks: 'Failed technical qualification: did not meet 100 TPD past operational project mandate.'
+      }
+    ],
+    recommendedBidder: 'EverEnviro Resource Management Pvt. Ltd.'
+  },
+  {
+    id: 'GUDM/RFP/2025/012',
+    projectId: 'GUDM-PRJ-2024-012',
+    projectName: 'Bharuch-Ankleshwar Urban Ring Road Bridge Over Narmada River Approach',
+    title: 'EPC Tender for Construction of 4-Lane Cable-Stayed Bridge Approach Road (3.4 km)',
+    category: 'Urban Roads & Bridges',
+    estimatedCost: 168.0,
+    tenderFee: 50000,
+    emdAmount: 16800000,
+    status: 'Published',
+    publishDate: '2025-03-01',
+    preBidMeetingDate: '2025-03-18',
+    submissionDeadline: '2025-04-10',
+    openingDate: '2025-04-12',
+    bidsCount: 0,
+    eligibilityCriteria: [
+      'Minimum average net worth of Rs. 60 Cr',
+      'Experience in constructing major river bridge approaches exceeding 2.5 km',
+      'Class-AA Contractor Registration with Gujarat Roads & Buildings Department',
+      'Ownership of specialized well sinking and heavy lifting gantries'
+    ],
+    evaluationCommittee: [
+      'Er. Pradeep Chaudhary (SE, GUDM)',
+      'Chief Engineer (Bridges, R&BD Gujarat)',
+      'Finance Controller (GUDM)'
+    ],
+    bids: []
+  },
+  {
+    id: 'GUDM/RFP/2023/102',
+    projectId: 'GUDM-PRJ-2024-001',
+    projectName: 'Ahmedabad Eastern Corridor Stormwater Drainage Phase-II',
+    title: 'Tender for Stormwater RCC Box Drains and Pumping Augmentation at Odhav/Nikol',
+    category: 'Stormwater Drainage',
+    estimatedCost: 145.0,
+    tenderFee: 30000,
+    emdAmount: 14500000,
+    status: 'Awarded',
+    publishDate: '2023-09-01',
+    preBidMeetingDate: '2023-09-15',
+    submissionDeadline: '2023-10-15',
+    openingDate: '2023-10-18',
+    bidsCount: 4,
+    eligibilityCriteria: ['Specialized micro-tunnelling experience under operating railway tracks'],
+    evaluationCommittee: ['AMC Drainage Committee', 'GUDM Technical Director'],
+    bids: [
+      {
+        id: 'BID-089',
+        bidderName: 'L&T Infrastructure Engineering Ltd. JV',
+        bidderRegistrationNo: 'L&T-INF-091',
+        technicalScore: 96.0,
+        financialBidAmount: 142.2,
+        bidSubmissionDate: '2023-10-12',
+        eligibilityPassed: true,
+        status: 'Awarded',
+        evaluatorRemarks: 'Evaluated L1 and lowest responsive bidder.'
+      }
+    ],
+    recommendedBidder: 'L&T Infrastructure Engineering Ltd. JV'
+  }
+];
+
+export const INITIAL_CONTRACTS: ContractRecord[] = [
+  {
+    id: 'GUDM/CTR/2023/048',
+    projectId: 'GUDM-PRJ-2024-001',
+    projectName: 'Ahmedabad Eastern Corridor Stormwater Drainage Phase-II',
+    contractorName: 'L&T Infrastructure Engineering Ltd. JV',
+    contractorPanGst: '24AAACL1902P1Z4',
+    workOrderNumber: 'AMC/GUDM/WO/2024/019',
+    workOrderDate: '2024-01-25',
+    contractValue: 142.2,
+    startDate: '2024-02-01',
+    scheduledEndDate: '2025-06-30',
+    performanceSecurity: {
+      bankName: 'State Bank of India (Commercial Branch, Ahmedabad)',
+      bgNumber: 'SBI-BG-2024-99120',
+      amount: 7.11, // 5% of contract value
+      validTill: '2026-06-30',
+      verified: true
+    },
+    milestonesCount: 4,
+    paymentTerms: 'Monthly Running Account (RA) bills against certified measurement book (MB) entries, with 5% security retention and 10% mobilization advance recovery.',
+    variationOrders: [
+      {
+        id: 'VO-01',
+        description: 'Micro-tunnelling span enlargement by 120m due to Western Railway corridor expansion',
+        amountDelta: 4.8,
+        timeExtensionDays: 45,
+        approvedDate: '2024-11-15'
+      }
+    ],
+    extensionOfTimeDays: 45,
+    penaltiesLevied: 0.0,
+    contractorPerformanceRating: 4.2,
+    status: 'Active'
+  },
+  {
+    id: 'GUDM/CTR/2023/031',
+    projectId: 'GUDM-PRJ-2024-002',
+    projectName: 'Surat Coastal Belt 24x7 Surface Water Supply Grid',
+    contractorName: 'NCC Limited - Megha Engineering JV',
+    contractorPanGst: '24AABCN4421K1ZZ',
+    workOrderNumber: 'SMC/GUDM/WO/2023/118',
+    workOrderDate: '2023-08-10',
+    contractValue: 204.5,
+    startDate: '2023-08-15',
+    scheduledEndDate: '2025-04-30',
+    performanceSecurity: {
+      bankName: 'Bank of Baroda (Surat Main)',
+      bgNumber: 'BOB-BG-2023-44180',
+      amount: 10.22,
+      validTill: '2026-04-30',
+      verified: true
+    },
+    milestonesCount: 4,
+    paymentTerms: 'Milestone-linked payments based on hydrostatic pressure tests and smart meter backend provisioning.',
+    variationOrders: [],
+    extensionOfTimeDays: 0,
+    penaltiesLevied: 0.0,
+    contractorPerformanceRating: 4.8,
+    status: 'Active'
+  }
+];
+
+export const INITIAL_INSPECTIONS: SiteInspection[] = [
+  {
+    id: 'INSP-2025-042',
+    projectId: 'GUDM-PRJ-2024-001',
+    projectName: 'Ahmedabad Eastern Corridor Stormwater Drainage Phase-II',
+    inspectionDate: '2025-03-08',
+    inspectionOfficer: 'Er. Rajesh K. Patel',
+    designation: 'Superintending Engineer, AMC / GUDM Technical Auditor',
+    siteLocation: 'Nikol Railway Cross-over Chainage 14+200',
+    workStatus: 'Needs Improvement',
+    qualityObservations:
+      'RCC box culvert wall curing period adhered to, but honeycombing noticed on north abutment face. Compressive cube strength results at 28-days achieved 34.2 MPa against required M35.',
+    safetyObservations:
+      'Trench shoring inadequate near high-tension tower base. Laborers observed working without safety harness near 4.5m deep pit.',
+    defectsIdentified: [
+      'Honeycombing on north abutment pier face (2.4 sqm patch)',
+      'Sub-standard perimeter safety barricading along public road'
+    ],
+    instructionsToContractor:
+      'Immediately rectify honeycombing using non-shrink polymer modified mortar. Erect hard metal barricading with retro-reflective tape within 48 hours.',
+    followUpDate: '2025-03-18',
+    complianceStatus: 'In Progress',
+    photographs: [
+      { url: 'https://images.unsplash.com/photo-1541888946425-d0fbb18615f8?auto=format&fit=crop&w=600&q=80', caption: 'Deep trench shoring and culvert reinforcement inspection', timestamp: '2025-03-08 10:45' },
+      { url: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80', caption: 'Nikol culvert honeycombing rectification spot', timestamp: '2025-03-08 11:15' }
+    ]
+  },
+  {
+    id: 'INSP-2025-039',
+    projectId: 'GUDM-PRJ-2024-003',
+    projectName: 'Vadodara Vishwamitri Riverfront Ecological Restoration',
+    inspectionDate: '2025-03-04',
+    inspectionOfficer: 'Er. Dharmesh Pandya',
+    designation: 'Executive Engineer, VMC',
+    siteLocation: 'Fatehgunj Bridge Downstream Segment',
+    workStatus: 'Critical Issues Found',
+    qualityObservations:
+      'Gabion mattress wire mesh gauge is 2.7mm instead of specified 3.0mm hot-dip galvanized steel wire.',
+    safetyObservations:
+      'Crocodile barrier nets breached at two points during recent unseasonal high river flow.',
+    defectsIdentified: [
+      'Non-compliant wire mesh gauge on riverbank gabions',
+      'Breached crocodile exclusion net poses hazard to ground workforce'
+    ],
+    instructionsToContractor:
+      'Halt gabion filling on Section B. Re-install wildlife exclusion fence immediately before resuming rip-rap placement.',
+    followUpDate: '2025-03-12',
+    complianceStatus: 'Pending',
+    photographs: [
+      { url: 'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=600&q=80', caption: 'Vishwamitri riverbank gabion wall inspection', timestamp: '2025-03-04 14:20' }
+    ]
+  },
+  {
+    id: 'INSP-2025-028',
+    projectId: 'GUDM-PRJ-2024-004',
+    projectName: 'Rajkot Smart Ring Road Multimodal Flyover at KKV Chowk',
+    inspectionDate: '2025-02-26',
+    inspectionOfficer: 'Er. Hitesh Trivedi',
+    designation: 'Executive Engineer, RMC',
+    siteLocation: 'Pier P-38 to P-42 Deck Slab',
+    workStatus: 'Satisfactory',
+    qualityObservations:
+      'Rebar placement, cover blocks, and pre-stressing duct alignment checked and found in full accordance with IRC:112 specifications.',
+    safetyObservations:
+      'Full safety netting and traffic diversions active with marshals deployed.',
+    defectsIdentified: [],
+    instructionsToContractor: 'Proceed with concrete pour for Span 40 starting 22:00 hrs with temperature monitoring.',
+    followUpDate: '2025-03-20',
+    complianceStatus: 'Complied',
+    photographs: [
+      { url: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80', caption: 'Deck slab reinforcement check before night pour', timestamp: '2025-02-26 16:30' }
+    ]
+  }
+];
+
+export const INITIAL_ISSUES_RISKS: IssueRisk[] = [
+  {
+    id: 'RSK-2025-001',
+    projectId: 'GUDM-PRJ-2024-003',
+    projectName: 'Vadodara Vishwamitri Riverfront Ecological Restoration',
+    type: 'Risk',
+    category: 'Environmental',
+    description: 'National Green Tribunal (NGT) notice regarding wildlife sanctuary buffer compliance and crocodile habitat zoning.',
+    severity: 'Critical',
+    probability: 'High',
+    impact: 'High',
+    owner: 'Er. Dharmesh Pandya (SE, VMC)',
+    dueDate: '2025-03-25',
+    status: 'Under review',
+    correctiveAction: 'Joint affidavit preparation with Gujarat State Forest & Wildlife department detailing wildlife corridors.',
+    escalationStatus: 'Secretary UD&UHD'
+  },
+  {
+    id: 'ISS-2025-004',
+    projectId: 'GUDM-PRJ-2024-001',
+    projectName: 'Ahmedabad Eastern Corridor Stormwater Drainage Phase-II',
+    type: 'Issue',
+    category: 'Statutory Clearances',
+    description: 'Western Railway division permission for micro-tunnelling under railway tracks delayed due to track renewal works.',
+    severity: 'High',
+    probability: 'High',
+    impact: 'High',
+    owner: 'Er. Rajesh K. Patel (SE, AMC)',
+    dueDate: '2025-03-31',
+    status: 'Action assigned',
+    correctiveAction: 'Meeting held with Divisional Railway Manager (DRM); revised night block schedule submitted.',
+    escalationStatus: 'Mission Director'
+  },
+  {
+    id: 'ISS-2025-008',
+    projectId: 'GUDM-PRJ-2024-007',
+    projectName: 'Jamnagar Waste-to-Energy (WTE) Processing Plant',
+    type: 'Issue',
+    category: 'Land Acquisition',
+    description: 'Boundary dispute on 4.2 hectares allocated for fly-ash landfill buffer zone with village panchayat.',
+    severity: 'Critical',
+    probability: 'High',
+    impact: 'High',
+    owner: 'Er. Ketan Solanki (SE, GUDM)',
+    dueDate: '2025-04-15',
+    status: 'Open',
+    correctiveAction: 'District Collector Jamnagar convened revenue settlement tribunal.',
+    escalationStatus: 'Mission Director'
+  },
+  {
+    id: 'RSK-2025-012',
+    projectId: 'GUDM-PRJ-2024-004',
+    projectName: 'Rajkot Smart Ring Road Multimodal Flyover at KKV Chowk',
+    type: 'Risk',
+    category: 'Technical',
+    description: 'Material cost escalation on structural high-tensile steel by 8% above tender price base index.',
+    severity: 'Medium',
+    probability: 'Medium',
+    impact: 'Medium',
+    owner: 'Er. Hitesh Trivedi (EE, RMC)',
+    dueDate: '2025-05-15',
+    status: 'Action assigned',
+    correctiveAction: 'Contract clause 10CA price variation formula triggered; financial contingency allocated.',
+    escalationStatus: 'Department Head'
+  }
+];
+
+export const INITIAL_DOCUMENTS: DocumentRecord[] = [
+  {
+    id: 'DOC-2024-081',
+    projectId: 'GUDM-PRJ-2024-001',
+    projectName: 'Ahmedabad Eastern Corridor Stormwater Drainage Phase-II',
+    title: 'Detailed Project Report (DPR) - Stormwater Drainage Vol I & II',
+    category: 'Project proposal',
+    version: 'v2.1',
+    fileName: 'Ahmedabad_Stormwater_DPR_Final_v2.pdf',
+    fileSize: '14.8 MB',
+    uploadedBy: 'Er. Rajesh K. Patel',
+    role: 'Project Manager',
+    uploadDate: '2023-11-12',
+    approvalStatus: 'Approved'
+  },
+  {
+    id: 'DOC-2024-082',
+    projectId: 'GUDM-PRJ-2024-001',
+    projectName: 'Ahmedabad Eastern Corridor Stormwater Drainage Phase-II',
+    title: 'Administrative Approval (AS) Government Resolution #GUDM-2023-SJMMSVY',
+    category: 'Administrative approval',
+    version: 'v1.0',
+    fileName: 'Govt_Resolution_AS_Sanction_142Cr.pdf',
+    fileSize: '1.2 MB',
+    uploadedBy: 'Secretary UD&UHD',
+    role: 'Senior Management',
+    uploadDate: '2023-12-05',
+    approvalStatus: 'Approved'
+  },
+  {
+    id: 'DOC-2024-083',
+    projectId: 'GUDM-PRJ-2024-001',
+    projectName: 'Ahmedabad Eastern Corridor Stormwater Drainage Phase-II',
+    title: 'Executed Contract Agreement & Performance Bank Guarantee',
+    category: 'Contract',
+    version: 'v1.0',
+    fileName: 'Contract_Agreement_LT_GUDM_Signed.pdf',
+    fileSize: '8.4 MB',
+    uploadedBy: 'M. V. Shah',
+    role: 'Procurement Officer',
+    uploadDate: '2024-01-29',
+    approvalStatus: 'Approved'
+  },
+  {
+    id: 'DOC-2024-084',
+    projectId: 'GUDM-PRJ-2024-001',
+    projectName: 'Ahmedabad Eastern Corridor Stormwater Drainage Phase-II',
+    title: 'Running Account (RA) Bill #05 & Measurement Book Abstract',
+    category: 'Bills',
+    version: 'v1.0',
+    fileName: 'RA_Bill_05_Measurements_Rs12Cr.pdf',
+    fileSize: '3.6 MB',
+    uploadedBy: 'L&T Project Billing Cell',
+    role: 'Contractor / Implementing Agency',
+    uploadDate: '2025-02-28',
+    approvalStatus: 'Pending Review'
+  },
+  {
+    id: 'DOC-2024-095',
+    projectId: 'GUDM-PRJ-2024-005',
+    projectName: 'Gandhinagar Capital Smart Solar Rooftop & SCADA',
+    title: 'Final Handover Certificate & As-Built Engineering Drawings',
+    category: 'Handover documents',
+    version: 'v1.0',
+    fileName: 'Gandhinagar_SCADA_Handover_Protocol.pdf',
+    fileSize: '22.4 MB',
+    uploadedBy: 'Er. Paresh Bhatt',
+    role: 'Project Manager',
+    uploadDate: '2024-11-25',
+    approvalStatus: 'Approved'
+  }
+];
+
+export const INITIAL_APPROVALS: ApprovalItem[] = [
+  {
+    id: 'APP-2025-019',
+    projectId: 'GUDM-PRJ-2024-001',
+    projectName: 'Ahmedabad Eastern Corridor Stormwater Drainage Phase-II',
+    approvalType: 'Running Account (RA) Bill',
+    amount: 12.4, // in Crores
+    submittedBy: 'Er. Rajesh K. Patel (SE, AMC)',
+    submitterRole: 'Project Manager',
+    currentOfficer: 'S. N. Mehta (Chief Accounts Officer)',
+    submissionDate: '2025-03-02',
+    dueDate: '2025-03-16',
+    status: 'Pending',
+    remarks: 'RA Bill #05 scrutinized against Measurement Book entries. 5% retention deducted.',
+    history: [
+      { officer: 'Er. Rajesh K. Patel', action: 'Submitted for Scrutiny', date: '2025-03-02 11:00', comments: 'Quality inspection passed. Bill recommended for clearance.' }
+    ]
+  },
+  {
+    id: 'APP-2025-022',
+    projectId: 'GUDM-PRJ-2024-011',
+    projectName: 'Mehsana Modern Integrated Solid Waste & Bio-Methanation Facility',
+    approvalType: 'Tender Award Recommendation',
+    amount: 34.8,
+    submittedBy: 'M. V. Shah (Procurement Officer)',
+    submitterRole: 'Procurement Officer',
+    currentOfficer: 'Mission Director GUDM',
+    submissionDate: '2025-03-10',
+    dueDate: '2025-03-20',
+    status: 'Pending',
+    remarks: 'Recommendation to award work to L1 bidder EverEnviro at Rs. 34.8 Cr (4.6% below estimated cost).',
+    history: [
+      { officer: 'M. V. Shah', action: 'Submitted with Committee Minutes', date: '2025-03-10 16:30', comments: 'All 3 committee members have signed evaluation sheet.' }
+    ]
+  },
+  {
+    id: 'APP-2025-025',
+    projectId: 'GUDM-PRJ-2024-001',
+    approvalType: 'Contract Variation / EOT',
+    projectName: 'Ahmedabad Eastern Corridor Stormwater Drainage Phase-II',
+    amount: 4.8,
+    submittedBy: 'Er. Rajesh K. Patel',
+    submitterRole: 'Project Manager',
+    currentOfficer: 'Chief Engineer GUDM',
+    submissionDate: '2025-03-05',
+    dueDate: '2025-03-19',
+    status: 'Pending',
+    remarks: '45-day extension of time requested due to railway clearance delay. No price escalation recommended.',
+    history: [
+      { officer: 'Er. Rajesh K. Patel', action: 'Variation proposal initiated', date: '2025-03-05 10:15', comments: 'Supported by Western Railway coordination letter.' }
+    ]
+  },
+  {
+    id: 'APP-2025-014',
+    projectId: 'GUDM-PRJ-2024-002',
+    approvalType: 'Administrative Approval (AS)',
+    projectName: 'Surat Coastal Belt 24x7 Surface Water Supply Grid',
+    amount: 204.5,
+    submittedBy: 'Planning & Project Formulation Directorate',
+    submitterRole: 'GUDM Department Administrator',
+    currentOfficer: 'Principal Secretary UD&UHD',
+    submissionDate: '2023-06-15',
+    dueDate: '2023-06-30',
+    status: 'Approved',
+    remarks: 'Full cabinet concurrence received for AMRUT 2.0 matching grant.',
+    history: [
+      { officer: 'Secretary UD&UHD', action: 'Approved and Sanction Order Generated', date: '2023-06-25 14:00', comments: 'Approved under Government Resolution #GUDM-WTR-2023-09.' }
+    ]
+  }
+];
+
+export const INITIAL_NOTIFICATIONS: NotificationItem[] = [
+  {
+    id: 'NOTIF-001',
+    title: 'Delayed Project Alert: Ahmedabad Stormwater Corridor',
+    description: 'Project is behind schedule by 45 days due to railway micro-tunnelling clearances. Requires inter-departmental intervention.',
+    category: 'Delayed Project',
+    severity: 'High',
+    timestamp: '2025-03-15 08:30',
+    projectId: 'GUDM-PRJ-2024-001',
+    read: false
+  },
+  {
+    id: 'NOTIF-002',
+    title: 'Critical Risk: Vishwamitri Riverfront NGT Review',
+    description: 'National Green Tribunal hearing scheduled for March 25. Environmental mitigation report submission overdue.',
+    category: 'Delayed Project',
+    severity: 'Critical',
+    timestamp: '2025-03-14 14:10',
+    projectId: 'GUDM-PRJ-2024-003',
+    read: false
+  },
+  {
+    id: 'NOTIF-003',
+    title: 'Pending Tender Award Recommendation: Mehsana Solid Waste',
+    description: 'Evaluation committee has submitted L1 award recommendation for Rs. 34.8 Cr. Awaiting Mission Director approval.',
+    category: 'Pending Approval',
+    severity: 'Medium',
+    timestamp: '2025-03-12 11:20',
+    projectId: 'GUDM-PRJ-2024-011',
+    read: false
+  },
+  {
+    id: 'NOTIF-004',
+    title: 'Site Inspection Non-Compliance: Nikol Railway Culvert',
+    description: 'Superintending Engineer flagged honeycombing and missing safety shoring. Corrective action report due March 18.',
+    category: 'Site Inspection',
+    severity: 'High',
+    timestamp: '2025-03-09 17:00',
+    projectId: 'GUDM-PRJ-2024-001',
+    read: true
+  },
+  {
+    id: 'NOTIF-005',
+    title: 'Financial Grant Utilization Milestone: Surat Water Supply',
+    description: 'Surat AMRUT 2.0 project reached 82% budget utilization. Eligible for tranche 3 central share claim.',
+    category: 'Financial Alert',
+    severity: 'Low',
+    timestamp: '2025-03-06 10:15',
+    projectId: 'GUDM-PRJ-2024-002',
+    read: true
+  }
+];
